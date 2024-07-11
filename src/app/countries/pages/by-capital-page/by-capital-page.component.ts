@@ -12,14 +12,17 @@ export class ByCapitalPageComponent {
   public countries: Country[] = [];
   private countriesService = inject(CountriesService);
 
-  searchByCapital( term: string ):void  {
+  public isLoading: boolean = false;
+
+  searchByCapital(term: string): void {
+    this.isLoading = true;
     // console.log({term});
     //si no nos suscribimos a ese observable no va a pasar nada.
-    this.countriesService.searchCapital( term )
-      .subscribe( countries => {
+    this.countriesService.searchCapital(term)
+      .subscribe(countries => {
         this.countries = countries;
+        this.isLoading = false;
       });
-
   }
 
 
