@@ -3,17 +3,16 @@
 
 <div class="row">
   <div class="col">
-      <!-- SearchBox -->
-     <search-box-component placeholder="buscar por País"
-      (onValue)="searchByContry($event)"
-     />
+    <!-- SearchBox -->
+    <search-box-component placeholder="buscar por País" (onDebounce)="searchByContry($event)" />
   </div>
 </div>
 
 <div class="row">
   <div class="col">
     <hr>
-    <country-table [countries]="country"/>
+    <shared-loading-spinner *ngIf="isLoading" />
+    <country-table [countries]="country" />
 
   </div>
 </div>

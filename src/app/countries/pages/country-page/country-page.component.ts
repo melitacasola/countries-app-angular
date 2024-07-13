@@ -11,7 +11,8 @@ import { Country } from '../../interfaces/country.interface';
   styles: ``
 })
 export class CountryPageComponent implements OnInit {
-  private router = inject(ActivatedRoute);
+
+  private routerActive = inject(ActivatedRoute);
   private route = inject(Router)
   private alphaCountry = inject(CountriesService);
 
@@ -19,14 +20,14 @@ export class CountryPageComponent implements OnInit {
 
   ngOnInit(): void {
     //primero vemos
-    // this.router.params
+    // this.routerActive.params
     //   .subscribe(params =>{
     //     console.log(params['id']);
 
     //   })
 
     //2) provamos que venga algo
-    // this.router.params
+    // this.routerActive.params
     //   .subscribe(({ id }) => {
     //     // console.log({params: id});
     //     // this.alphaCountry.searchCountryByAlphaCode(id)
@@ -39,7 +40,7 @@ export class CountryPageComponent implements OnInit {
     //   })
 
     //nueva forma
-    this.router.params
+    this.routerActive.params
     .pipe(
       switchMap( ({id}) => this.alphaCountry.searchCountryByAlphaCode(id) )
     )

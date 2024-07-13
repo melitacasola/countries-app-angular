@@ -6,8 +6,9 @@
     <!-- SearchBox -->
     <search-box-component
       placeholder="buscar por Capital"
-      (onValue)="searchByCapital($event)"
-    />
+      (onDebounce)="searchByCapital($event)"
+      />
+      <!-- (onValue)="searchByCapital($event)" -->
 
   </div>
 </div>
